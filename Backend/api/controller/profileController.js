@@ -41,7 +41,28 @@ const profileController = {
         }
     },
     updateProfile: (id) => { },
-    listProfiles: () => { },
+    listProfiles: (req, context, callback) => {
+        var params = {
+            TableName: process.env.PORTFOLIO_TABLE,
+            ProjectionExpression: "id, description, image_url,twitter_user_name,title"
+        };
+        console.log("Scanning profile table.");
+        const onScan = (err, data) => {
+            if (err) {
+                console.log('Scan failed to load data. Error JSON:', JSON.stringify(err, null, 2));
+                callback(err);
+            } else {
+                console.log("Scan succeeded.");
+                return callback(null, {
+                    statusCode: 200,
+                    body: JSON.stringify({
+                        candidates: data.Items
+                    })
+                })
+            }
+        }
+        profileModel.getTableInstance().scan(params, onScan);
+    },
     getProfile: (id) => { }
 }
 
