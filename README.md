@@ -64,7 +64,7 @@ and finally update whit this
 ```
 
 # FrontEnd
-This project was created used Angular framework and angular cli for run this project use the next instructions
+This project was created used Angular framework and angular cli if you want run this project use the next instructions
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ## Build
