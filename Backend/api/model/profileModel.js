@@ -6,6 +6,10 @@ const AWS = require('aws-sdk')
 const profileModel = {
     getTableInstance: () => {
         AWS.config.setPromisesDependency(require('bluebird'))
+        AWS.config.update({
+            region: "us-east-1",
+            endpoint: "https://dynamodb.us-east-1.amazonaws.com"
+        })
         const dynamoDb = new AWS.DynamoDB.DocumentClient()
         return dynamoDb
     }

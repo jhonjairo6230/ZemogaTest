@@ -8,10 +8,10 @@ module.exports.list = (event, context, callback) => {
   profileController.listProfiles(event, context, callback)
 }
 
-/************** */
 module.exports.get = (event, context, callback) => {
   profileController.getProfile(event, context, callback)
 }
-/******** */
 
-module.exports.update = (event, context, callback) => { }
+module.exports.update = async (event, context, callback) => {
+  await profileController.updateProfile(event, context, callback)
+}
