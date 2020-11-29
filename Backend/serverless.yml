@@ -47,7 +47,7 @@ functions:
     handler: api/profile.get
     events:
       - http:
-          path: profiles/{id}
+          path: profile/{id}
           method: get
 Resources:
   ProfilesDynamoDbTable:
