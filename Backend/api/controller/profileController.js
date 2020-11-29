@@ -5,6 +5,7 @@ const uuid = require('uuid');
 
 const profileController = {
     createProfile: async (req, context, callback) => {
+        req = JSON.parse(req.body);
         var profileInfo = {
             id: uuid.v1(),
             description: req.description,
@@ -42,6 +43,7 @@ const profileController = {
         }
     },
     updateProfile: async (req, context, callback) => {
+        req = JSON.parse(req.body);
         var profileInfo = {
             id: req.id,
             description: req.description,
@@ -92,7 +94,7 @@ const profileController = {
                 return callback(null, {
                     statusCode: 200,
                     body: JSON.stringify({
-                        candidates: data.Items
+                        profiles: data.Items
                     })
                 })
             }
