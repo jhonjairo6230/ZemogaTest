@@ -29,7 +29,7 @@ functions:
   updateProfile:
     handler: api/profile.update
     memorySize: 128
-    description: update candidate information.
+    description: update profile information.
     events:
       - http:
           path: profile
@@ -50,7 +50,7 @@ functions:
           path: profiles/{id}
           method: get
 Resources:
-  CandidatesDynamoDbTable:
+  ProfilesDynamoDbTable:
     Type: "AWS::DynamoDB::Table"
     DeletionPolicy: Retain
     Properties:

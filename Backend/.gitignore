@@ -1,6 +1,6 @@
 # package directories
 api/node_modules
-jspm_packages
+api/jspm_packages
 
 # Serverless directories
 .serverless
