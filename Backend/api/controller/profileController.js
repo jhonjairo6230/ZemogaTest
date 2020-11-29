@@ -1,5 +1,6 @@
 'use strict'
 var profileModel = require('../model/profileModel')
+var twitterConfig = require('../model/twitterModel')
 const uuid = require('uuid');
 
 const profileController = {
@@ -108,11 +109,7 @@ const profileController = {
 
         profileModel.getTableInstance().get(params).promise()
             .then(result => {
-                const response = {
-                    statusCode: 200,
-                    body: JSON.stringify(result.Item),
-                }
-                callback(null, response);
+                operations.getUserTweet(result.Item, callback)
             })
             .catch(error => {
                 console.error(error);
@@ -156,7 +153,24 @@ const operations = {
         };
 
         return profileModel.getTableInstance().update(params).promise()
-            .then(res => profile);
+            .then(res => profile)
+    },
+    getUserTweet: (profile, callback) => {
+        var params = { screen_name: profile.twitter_user_name }
+        twitterConfig.getTwitterConfig().get('statuses/user_timeline', params, function (error, tweets, response) {
+            if (!error) {
+                const resp = Object.assign(profile, { twitter_time_line: tweets })
+                const responseObject = {
+                    statusCode: 200,
+                    body: JSON.stringify(resp),
+                }
+                callback(null, responseObject);
+            } else {
+                console.error(error);
+                callback(new Error('Couldn\'t fetch profile.'));
+                return;
+            }
+        })
     }
 }
 
