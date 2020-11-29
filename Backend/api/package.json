@@ -4,7 +4,7 @@
   "description": "backend solution to nodejs test for Zemoga",
   "main": "handler.js",
   "scripts": {
-    "test": "npm run test"
+    "test": "jest"
   },
   "keywords": [
     "Zemoga"
