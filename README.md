@@ -59,8 +59,7 @@ then create a zip function to install node_modules in aws
 
 and finally update whit this
 ```sh
- aws lambda update-function-code --function-name zemoga-service-dev-createProfile\
---zip-file fileb://function.zip
+ aws lambda update-function-code --function-name zemoga-service-dev-createProfile --zip-file fileb://function.zip
 ```
 
 # FrontEnd
