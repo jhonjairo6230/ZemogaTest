@@ -27,6 +27,7 @@ functions:
           path: profile
           method: post
           resources:
+          cors: true
   updateProfile:
     handler: api/profile.update
     memorySize: 128
@@ -36,6 +37,7 @@ functions:
           path: profile
           method: put
           resources:
+          cors: true
   listProfiles:
     handler: api/profile.list
     memorySize: 128
@@ -44,12 +46,14 @@ functions:
       - http:
           path: profile
           method: get
+          cors: true
   getProfile:
     handler: api/profile.get
     events:
       - http:
           path: profile/{id}
           method: get
+          cors: true
 Resources:
   ProfilesDynamoDbTable:
     Type: "AWS::DynamoDB::Table"

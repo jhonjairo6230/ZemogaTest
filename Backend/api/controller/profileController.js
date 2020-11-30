@@ -29,6 +29,13 @@ const profileController = {
                 statusCode: 200,
                 body: JSON.stringify({
                     message: `Sucessfully submitted profile with title ${profileInfo.title}`,
+                    headers: {
+                        "Accept": "application/json, text/plain, */*",
+                        "Access-Control-Allow-Headers": "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "OPTIONS,POST,GET,PUT",
+                        'Access-Control-Allow-Credentials': 'true',
+                    },
                     profileId: res.id
                 })
             })
@@ -65,6 +72,13 @@ const profileController = {
             callback(null, {
                 statusCode: 200,
                 body: JSON.stringify({
+                    headers: {
+                        "Accept": "application/json, text/plain, */*",
+                        "Access-Control-Allow-Headers": "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "OPTIONS,POST,GET,PUT",
+                        'Access-Control-Allow-Credentials': 'true',
+                    },
                     message: `Sucessfully updated profile with title ${profileInfo.title}`,
                     profileId: res.id
                 })
@@ -93,8 +107,16 @@ const profileController = {
                 console.log("Scan succeeded.")
                 return callback(null, {
                     statusCode: 200,
+                    headers: {
+                        "Accept": "application/json, text/plain, */*",
+                        "Access-Control-Allow-Headers": "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "OPTIONS,POST,GET,PUT",
+                        'Access-Control-Allow-Credentials': 'true',
+                    },
                     body: JSON.stringify({
-                        profiles: data.Items
+                        profiles: data.Items,
+                        request: req
                     })
                 })
             }
@@ -102,6 +124,7 @@ const profileController = {
         profileModel.getTableInstance().scan(params, onScan);
     },
     getProfile: async (event, context, callback) => {
+        console.log(event)
         const params = {
             TableName: process.env.PORTFOLIO_TABLE,
             Key: {
@@ -111,7 +134,7 @@ const profileController = {
 
         profileModel.getTableInstance().get(params).promise()
             .then(result => {
-                operations.getUserTweet(result.Item, callback)
+                operations.getUserTweet(result.Item, callback, event)
             })
             .catch(error => {
                 console.error(error);
@@ -157,13 +180,20 @@ const operations = {
         return profileModel.getTableInstance().update(params).promise()
             .then(res => profile)
     },
-    getUserTweet: (profile, callback) => {
+    getUserTweet: (profile, callback, req) => {
         var params = { screen_name: profile.twitter_user_name }
         twitterConfig.getTwitterConfig().get('statuses/user_timeline', params, function (error, tweets, response) {
             if (!error) {
                 const resp = Object.assign(profile, { twitter_time_line: tweets })
                 const responseObject = {
                     statusCode: 200,
+                    headers: {
+                        "Accept": "application/json, text/plain, */*",
+                        "Access-Control-Allow-Headers": "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers",
+                        "Access-Control-Allow-Origin": "*",
+                        "Access-Control-Allow-Methods": "OPTIONS,POST,GET,PUT",
+                        'Access-Control-Allow-Credentials': 'true',
+                    },
                     body: JSON.stringify(resp),
                 }
                 callback(null, responseObject);

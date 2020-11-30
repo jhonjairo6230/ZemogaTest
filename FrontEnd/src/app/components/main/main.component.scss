@@ -1,0 +1,40 @@
+$component-height: 500px;
+$time_line_height: 300px;
+$background: rgb;
+
+.twitter_time_line {
+  overflow: auto;
+  height: $component-height;
+}
+
+.content {
+  padding: 1%;
+  overflow: hidden;
+  background: rgb(180, 180, 180);
+  height: 100%;
+}
+
+.image_position {
+  text-align: center;
+}
+
+.description {
+  height: $component-height;
+  overflow: auto;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.sub_title{
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.5em;
+    color: antiquewhite;
+}
+
+.title{
+    text-align: center;
+    font-weight: bold;
+    font-size: 2em;
+    color: whitesmoke;
+}
