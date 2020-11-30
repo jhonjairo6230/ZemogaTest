@@ -1,0 +1,39 @@
+<div class="content">
+  <div class="form" [formGroup]="form" fxFlex="100" fxLayoutAlign="center" fxLayout="column wrap">
+
+    <mat-card>
+      <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="10px">
+        <mat-form-field appearance="outline" fxFlex="calc(50% - 10px)">
+          <mat-label>description</mat-label>
+          <input matInput placeholder="description" formControlName="description">
+        </mat-form-field>
+      </div>
+
+      <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutGap="10px">
+        <mat-form-field appearance="outline" fxFlex="calc(50% - 10px)">
+          <mat-label>image_url</mat-label>
+          <input matInput placeholder="www.image.com" formControlName="image_url">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" fxFlex="calc(50% - 10px)">
+          <mat-label>twitter_user_name</mat-label>
+          <input matInput placeholder="username" formControlName="twitter_user_name">
+        </mat-form-field>
+      </div>
+
+      <div fxLayout="row wrap" fxLayout.xs="column">
+        <mat-form-field appearance="outline" fxFlex="50">
+          <mat-label>title </mat-label>
+          <input matInput placeholder="title" formControlName="title">
+        </mat-form-field>
+      </div>
+      <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="10px">
+        <button style="padding: 1vw;" (click)="edit()" mat-raised-button color="primary" fxLayoutAlign="center center"
+          fxFlex="calc(50% - 10px)" [disabled]="validateForm()">Edit</button>
+        <button style="padding: 1vw;" (click)="cancel()" mat-raised-button color="secundary"
+          fxLayoutAlign="center center" fxFlex="calc(50% - 10px)">Cancel</button>
+
+      </div>
+    </mat-card>
+  </div>
+</div>

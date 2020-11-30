@@ -1,0 +1,26 @@
+$background: rgb(180, 180, 180);
+$component-height: 500px;
+
+.content {
+    padding: 10%;
+    overflow: hidden;
+    background: $background;
+    height: 100%;
+}
+
+.twitter_time_line {
+    overflow: auto;
+    height: $component-height;
+  }
+
+.list_users{
+      margin: 10%;
+}
+
+.sub_title{
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.5em;
+    color: antiquewhite;
+}
+
