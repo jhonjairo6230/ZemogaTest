@@ -20,4 +20,9 @@ public mainUrl = 'https://q45vkzo8td.execute-api.us-east-1.amazonaws.com/dev/pro
   async getAllProfiles():Promise<any> {
     return await this.http.get<any>(`${this.mainUrl}`).toPromise();
  }
+
+async updateProfile(profile):Promise<any> {
+  return await this.http.put<any>(`${this.mainUrl}`,profile).toPromise();
+}
+
 }

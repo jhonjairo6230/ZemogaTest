@@ -1,7 +1,7 @@
 <div class="content">
   <div class="form" [formGroup]="form" fxFlex="100" fxLayoutAlign="center" fxLayout="column wrap">
 
-    <mat-card class="cardContenido">
+    <mat-card>
       <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="10px">
         <mat-form-field appearance="outline" fxFlex="calc(50% - 10px)">
           <mat-label>description</mat-label>
@@ -12,12 +12,12 @@
       <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutGap="10px">
         <mat-form-field appearance="outline" fxFlex="calc(50% - 10px)">
           <mat-label>image_url</mat-label>
-          <input matInput placeholder="www.image.com" maxlength="5" formControlName="image_url" numbersOnly>
+          <input matInput placeholder="www.image.com" formControlName="image_url">
         </mat-form-field>
 
         <mat-form-field appearance="outline" fxFlex="calc(50% - 10px)">
           <mat-label>twitter_user_name</mat-label>
-          <input matInput placeholder="username" maxlength="5" formControlName="twitter_user_name" numbersOnly>
+          <input matInput placeholder="username" formControlName="twitter_user_name">
         </mat-form-field>
       </div>
 
