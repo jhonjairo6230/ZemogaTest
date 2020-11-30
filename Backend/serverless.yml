@@ -15,6 +15,7 @@ provider:
         - dynamodb:Scan
         - dynamodb:GetItem
         - dynamodb:PutItem
+        - "dynamodb:UpdateItem"
       Resource: "*"
 functions:
   createProfile:
@@ -26,15 +27,17 @@ functions:
           path: profile
           method: post
           resources:
+          cors: true
   updateProfile:
     handler: api/profile.update
     memorySize: 128
-    description: update candidate information.
+    description: update profile information.
     events:
       - http:
           path: profile
           method: put
           resources:
+          cors: true
   listProfiles:
     handler: api/profile.list
     memorySize: 128
@@ -43,14 +46,16 @@ functions:
       - http:
           path: profile
           method: get
+          cors: true
   getProfile:
     handler: api/profile.get
     events:
       - http:
-          path: profiles/{id}
+          path: profile/{id}
           method: get
+          cors: true
 Resources:
-  CandidatesDynamoDbTable:
+  ProfilesDynamoDbTable:
     Type: "AWS::DynamoDB::Table"
     DeletionPolicy: Retain
     Properties:

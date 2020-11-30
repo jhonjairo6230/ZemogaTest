@@ -1,0 +1,45 @@
+<mat-spinner *ngIf="isLoading"></mat-spinner>
+<div fxLayout="row" *ngIf="!isLoading" class="content" fxLayoutGap="10px">
+  <div class="twitter_timeline" fxLayout="column" fxFlex="calc(50% - 10px)" fxLayoutGap="10px">
+
+    <div fxLayout="column" fxLayoutAlign="center center" fxFlex="calc(10% - 10px)" class="image_position">
+      <img style="width: 30%;height: 80%;" src='{{profileInfo.image_url}}' class="img-fluid" alt="Responsive image" />
+    </div>
+    <div fxFlex="calc(30% - 10px)">
+      <mat-card>
+        <div fxLayout="row" fxLayoutAlign="center center" class="sub_title">
+          {{profileInfo.title}} timeline
+        </div>
+        <mat-divider></mat-divider>
+        <mat-list class="twitter_time_line">
+          <mat-list-item *ngFor="let tweet of profileInfo.twitter_time_line">
+            <div mat-line>{{tweet.text}}</div>
+            <div mat-line> {{tweet.created_at | date}} </div>
+          </mat-list-item>
+          <mat-divider></mat-divider>
+        </mat-list>
+      </mat-card>
+
+    </div>
+    <div fxFlex="calc(60% - 10px)"></div>
+  </div>
+
+  <div class="user_info" fxLayout="column" fxFlex="calc(50% - 10px)" fxLayoutGap="10px">
+    <div fxFlex="calc(5% - 10px)" class="title">
+      {{profileInfo.title}}
+    </div>
+    <div fxFlex="calc(35% - 10px)">
+      <mat-card class="description">
+        <div class="sub_title">About me</div>
+        <mat-divider></mat-divider>
+        {{profileInfo.description}}
+      </mat-card>
+      <section fxLayout="row" fxLayoutAlign="center center" style="margin: 10px;">
+        <button mat-raised-button color="primary" (click)="goToEdit()">Edit</button>
+      </section>
+    </div>
+    <div>
+    </div>
+    <div fxFlex="calc(50% - 10px)"></div>
+  </div>
+</div>
