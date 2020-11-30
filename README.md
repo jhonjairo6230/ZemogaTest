@@ -14,9 +14,9 @@ Before running this project was published on my personal AWS accountand you can 
 
 ### End-Points
 - Add new profile: "Add new profile:"
-- Update profile: "https://5vktvhtwf1.execute-api.us-east-1.amazonaws.com/dev/profile"
-- List all profiles: "https://5vktvhtwf1.execute-api.us-east-1.amazonaws.com/dev/profile"
-- get specific profile: "https://5vktvhtwf1.execute-api.us-east-1.amazonaws.com/dev/profile/{id}"
+- Update profile: "https://q45vkzo8td.execute-api.us-east-1.amazonaws.com/dev/profile"
+- List all profiles: "https://q45vkzo8td.execute-api.us-east-1.amazonaws.com/dev/profile"
+- get specific profile: "https://q45vkzo8td.execute-api.us-east-1.amazonaws.com/dev/profile{id}"
 
 you can test this web services using your preferred json client here I am going to show How to test in postman tool (you can donwload free that here: https://www.postman.com/downloads/)
 
