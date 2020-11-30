@@ -8,21 +8,26 @@ import { Profile } from '../models/profile';
 })
 export class MainService {
 
-public mainUrl = 'https://q45vkzo8td.execute-api.us-east-1.amazonaws.com/dev/profile/';
+  public mainUrl = 'https://q45vkzo8td.execute-api.us-east-1.amazonaws.com/dev/profile/';
 
   constructor(private http: HttpClient) { }
 
-
-  async getProfileInfo(id:String):Promise<any> {
-     return await this.http.get<any>(`${this.mainUrl}${id}`).toPromise();
+  protected generateAuthHeaders(): HttpHeaders {
+    return new HttpHeaders()
+      .set('Accept', 'application/json')
+      .set('Content-Type', 'application/json');
   }
 
-  async getAllProfiles():Promise<any> {
-    return await this.http.get<any>(`${this.mainUrl}`).toPromise();
- }
+  async getProfileInfo(id: String): Promise<any> {
+    return await this.http.get<any>(`${this.mainUrl}${id}`).toPromise();
+  }
 
-async updateProfile(profile):Promise<any> {
-  return await this.http.put<any>(`${this.mainUrl}`,profile).toPromise();
-}
+  async getAllProfiles(): Promise<any> {
+    return await this.http.get<any>(`${this.mainUrl}`).toPromise();
+  }
+
+  async updateProfile(profile: any): Promise<any> {
+    return await this.http.put<any>(`${this.mainUrl}`, profile, { headers: this.generateAuthHeaders() }).toPromise();
+  }
 
 }

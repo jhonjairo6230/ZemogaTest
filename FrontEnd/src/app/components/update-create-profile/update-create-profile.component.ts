@@ -42,11 +42,13 @@ export class UpdateCreateProfileComponent implements OnInit {
       description: this.form.controls.description.value,
       image_url: this.form.controls.image_url.value,
       twitter_user_name: this.form.controls.twitter_user_name.value,
-      title: this.form.controls.title.value + "123",
+      title: this.form.controls.title.value,
       id: this.element.id
     }
     try {
       await this.mainService.updateProfile(request);
+      sessionStorage.setItem("profile", "");
+      this.router.navigate(['/main']);
     } catch (error) {
       console.error(error);
     }
