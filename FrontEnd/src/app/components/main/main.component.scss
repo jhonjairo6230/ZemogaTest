@@ -1,6 +1,6 @@
 $component-height: 500px;
 $time_line_height: 300px;
-$background: rgb;
+$background: rgb(180, 180, 180);
 
 .twitter_time_line {
   overflow: auto;
@@ -10,7 +10,7 @@ $background: rgb;
 .content {
   padding: 1%;
   overflow: hidden;
-  background: rgb(180, 180, 180);
+  background: $background;
   height: 100%;
 }
 
