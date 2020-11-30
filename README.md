@@ -78,6 +78,11 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
+# Time to solve
+
+- Backend: 10 hours
+- FrontEnd: 6 hours
+- Documentation: 3 hours
 
  ### Contact:
  feel free to write me to:
