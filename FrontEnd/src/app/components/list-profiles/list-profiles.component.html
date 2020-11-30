@@ -1,1 +1,19 @@
-<p>list-profiles works!</p>
+<div class="content">
+  <div fxFlex="100" class="list_users">
+    <mat-spinner *ngIf="isLoading"></mat-spinner>
+    <mat-card *ngIf="!isLoading">
+      <div fxLayout="row" fxLayoutAlign="center center" class="sub_title">
+        List of user registered
+      </div>
+      <mat-divider></mat-divider>
+      <mat-list class="twitter_time_line">
+        <mat-list-item *ngFor="let profile of profiles" (click)="goToDetail(profile)">
+          <div mat-line>{{profile.title}}</div>
+          <div mat-line> {{profile.twitter_user_name}} </div>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+      </mat-list>
+    </mat-card>
+
+  </div>
+</div>

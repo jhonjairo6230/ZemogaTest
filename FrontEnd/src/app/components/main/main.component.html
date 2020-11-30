@@ -1,4 +1,5 @@
-<div fxLayout="row" class="content" fxLayoutGap="10px">
+<mat-spinner *ngIf="isLoading"></mat-spinner>
+<div fxLayout="row" *ngIf="!isLoading" class="content" fxLayoutGap="10px">
   <div class="twitter_timeline" fxLayout="column" fxFlex="calc(50% - 10px)" fxLayoutGap="10px">
 
     <div fxLayout="column" fxLayoutAlign="center center" fxFlex="calc(10% - 10px)" class="image_position">

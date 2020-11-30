@@ -115,8 +115,7 @@ const profileController = {
                         'Access-Control-Allow-Credentials': 'true',
                     },
                     body: JSON.stringify({
-                        profiles: data.Items,
-                        request: req
+                        profiles: data.Items
                     })
                 })
             }

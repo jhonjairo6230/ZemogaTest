@@ -10,16 +10,20 @@ import { MainService } from 'src/app/services/main.service';
 })
 export class MainComponent implements OnInit, AfterViewInit {
   public profileInfo:any;
+  public profileSelected;
+  public isLoading = true; 
 
   constructor(private mainService:MainService,private router: Router, private route: ActivatedRoute,) { 
-    
+    this.profileSelected = sessionStorage.getItem("profile_selected")
   }
 
   async ngOnInit() {
-    this.profileInfo =   await this.mainService.getProfileInfo("ffe1a040-3219-11eb-bbe0-c5fc6762aab8");
+    this.profileInfo =   await this.mainService.getProfileInfo(this.profileSelected.toString());
+    this.isLoading = false;
   }
 
   goToEdit(){
+    sessionStorage.setItem("profile",JSON.stringify(this.profileInfo));
     this.router.navigate(['/update-create-profile']);
   }
 

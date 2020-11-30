@@ -6,7 +6,7 @@ import { UpdateCreateProfileComponent } from './components/update-create-profile
 
 const routes: Routes = [{
   path: '',
-  redirectTo: '/main',
+  redirectTo: '/list-profiles',
   pathMatch: 'full'
 }, {
   path: 'main',
