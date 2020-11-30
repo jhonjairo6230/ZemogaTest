@@ -27,15 +27,15 @@ const profileController = {
             console.log(res)
             callback(null, {
                 statusCode: 200,
+                headers: {
+                    "Accept": "application/json, text/plain, */*",
+                    "Access-Control-Allow-Headers": "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers",
+                    "Access-Control-Allow-Origin": "*",
+                    "Access-Control-Allow-Methods": "OPTIONS,POST,GET,PUT",
+                    'Access-Control-Allow-Credentials': 'true',
+                },
                 body: JSON.stringify({
                     message: `Sucessfully submitted profile with title ${profileInfo.title}`,
-                    headers: {
-                        "Accept": "application/json, text/plain, */*",
-                        "Access-Control-Allow-Headers": "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers",
-                        "Access-Control-Allow-Origin": "*",
-                        "Access-Control-Allow-Methods": "OPTIONS,POST,GET,PUT",
-                        'Access-Control-Allow-Credentials': 'true',
-                    },
                     profileId: res.id
                 })
             })
@@ -71,14 +71,14 @@ const profileController = {
             console.log(res)
             callback(null, {
                 statusCode: 200,
+                headers: {
+                    "Accept": "application/json, text/plain, */*",
+                    "Access-Control-Allow-Headers": "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers",
+                    "Access-Control-Allow-Origin": "*",
+                    "Access-Control-Allow-Methods": "OPTIONS,POST,GET,PUT",
+                    'Access-Control-Allow-Credentials': 'true',
+                },
                 body: JSON.stringify({
-                    headers: {
-                        "Accept": "application/json, text/plain, */*",
-                        "Access-Control-Allow-Headers": "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers",
-                        "Access-Control-Allow-Origin": "*",
-                        "Access-Control-Allow-Methods": "OPTIONS,POST,GET,PUT",
-                        'Access-Control-Allow-Credentials': 'true',
-                    },
                     message: `Sucessfully updated profile with title ${profileInfo.title}`,
                     profileId: res.id
                 })
